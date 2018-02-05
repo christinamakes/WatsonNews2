@@ -6,40 +6,26 @@
 'use strict';
 
 
-let naturalWaston = require('watson-developer-cloud/natural-language-understanding/v1.js');
+const naturalWaston = require('watson-developer-cloud/natural-language-understanding/v1.js');
 
-let myWatson = new naturalWaston({
+const myWatson = new naturalWaston({
   'username': '9df567c5-d750-4833-8956-320c95cd7ff5',
   'password': 'ip168lPWPBqo',
   'version_date': '2017-02-27'
 });
 
-let parameters = {
-  'url': 'http://www.bbc.co.uk/news/world-latin-america-42217798',
-  'features': {
-    'emotion': {
-      'document': true,
-    },
-    // 'entities': {
-    //   'emotion': true,
-    //   'sentiment': true,
-    //   'limit': 2
-    // },
-    // 'keywords': {
-    //   'emotion': true,
-    //   'sentiment': true,
-    //   'limit': 2
-    // }
-  }
-};
-
-const callWatson = function() {
+const callWatson = function(parameters) {
   myWatson.analyze(parameters, function(err, response) {
+  const results = [];
   if (err)
     console.log('error:', err);
   else
-    console.log(JSON.stringify(response, null, 2));
-});
+  // response pushed to array of results 
+    results.push((response));
+    console.log(results);
+    // console.log(results.usage);
+  });
 };
 
-module.exports = callWatson;
+
+module.exports.callWatson = callWatson;
