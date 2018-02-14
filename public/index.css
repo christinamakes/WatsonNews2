@@ -9,7 +9,9 @@
 
 .searchform {
   display: block;	
-  margin: 40px;
+  font-size: 24px;
+  width: 50vw;
+  margin: auto;
 }
 
 .searchform label, 
@@ -35,8 +37,4 @@
   border-color: rgb(40, 225, 129);
   color: rgb(0, 0, 0);
   outline: 0;
-}
-
-@media only screen and (min-width: 48em) {
-  .searchform input[type=search]{ width: 50%; }
 }
