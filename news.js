@@ -23,7 +23,7 @@ const articles = function() {
   for( let i = 0; i < response.articles.length; i++) {
     currentURL.push(response.articles[i].url);
   }
-  return currentURL
+  return currentURL;
 })
   .then(response => {
       for (let i = 0; i < response.length; i++) {
@@ -34,10 +34,10 @@ const articles = function() {
           'document': true,
           },
         }
-      }
+      };
     watson.callWatson(parameters, null);
     }
-  })
+  });
 };
 
 

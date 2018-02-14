@@ -1,0 +1,42 @@
+@-webkit-keyframes border {
+  0% {color: #E27D60;}
+  20% {color: rgb(118, 203, 213);}
+  40% {color: #E8A87C;}
+  60% {color: #C38D9E;}
+  80% {color: rgb(62, 62, 148);}
+  100% {color: #41B3A3}
+}
+
+.searchform {
+  display: block;	
+  margin: 40px;
+}
+
+.searchform label, 
+.searchform input {
+  color: #484848b6;
+  float: left;
+  vertical-align: baseline;
+}
+
+.searchform label { margin: .125em .125em 0 0; }
+
+.searchform input[type=search] {
+  font: 1em/1.618 Open Sans, Arial, Sans-serif;
+  border: .125em solid;
+  -webkit-animation: border 9s infinite alternate;
+  border-width: 0 0 3px;
+  background-color: transparent;
+  padding: .1875em .375em;
+  width: 80%;
+}
+
+.searchform input[type=search]:focus {
+  border-color: rgb(40, 225, 129);
+  color: rgb(0, 0, 0);
+  outline: 0;
+}
+
+@media only screen and (min-width: 48em) {
+  .searchform input[type=search]{ width: 50%; }
+}
