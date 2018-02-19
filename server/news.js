@@ -4,14 +4,12 @@ const NewsAPI = require('newsapi');
 const watson = require('./watson');
 
 const app = new NewsAPI('cffd5c18704145eb89a7156717753b11');
-let userQuery;
-let startDate;
-let endDate;
 
 
-const getTheNews = (function () { 
+
+
 // Takes user query returns reults into promise then feeds them into watson analyze and calls watson
-  const articles = function(userQuery, startDate, endDate) {
+const articles = function(userQuery, startDate, endDate) {
     app.v2.everything({
     q: userQuery,
     // sources: 'bbc-news,the-verge',
@@ -40,18 +38,19 @@ const getTheNews = (function () {
             },
           }
         };
-      watson.callWatson(parameters, null);
+      return parameters;
       }
-    });
+    })
+      .then(parameters => {
+        console.log(parameters.url + ' from news then');
+        const watsonResults = watson.callWatson(parameters);
+        console.log(watsonResults + '    FROM NEWS');
+      });
   };
 
-  return {
-    articles
-  };
-  
-})();
+  module.exports.articles = articles;
 
 
-
+// getTheNews.articles('bitcoin', '12-10-17', '12-19-17');
 
 

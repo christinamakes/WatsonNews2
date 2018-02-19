@@ -1,6 +1,8 @@
 /* global $ api */
 'use strict';
+
 console.log('handlers ready');
+
 
 const handlers = (function () {
   
@@ -11,7 +13,7 @@ const handlers = (function () {
       console.log('hello');
       console.log(input);
 
-      api.getNews('/', input)
+      api.getNews('/question', input)
         .then(res => {
           console.log(res);
         });
