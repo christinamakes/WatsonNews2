@@ -7,20 +7,29 @@
   <link rel="stylesheet" type="text/css" href="styles/reset.css">
   <link rel = 'stylesheet' type = 'text/css' href = 'styles/index.css'>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300" />
+  
+  
   <title>Whats the news?</title>
   
 </head>
 <body>
   <h1>How was the news</h1>
   <div class = 'form-container'>
-  <form class = 'searchform'>
+  <form class = 'searchform' id = 'form-news'>
       <label for = 'search-box' class = 'js-news-input' 'news-input'></label>
-      <input type = 'search' name = 'search-box' placeholder="Search the news">
+      <input type = 'search' name = 'search-box' class = 'js-search-text' placeholder="Search the news" autofocus>
+      <label for = 'submit-button' id = 'js-submit-button'></label>
+      <button type = 'submit'>Go</button>
   </form>
   </div>
   <div class = 'details'>
     <p>What exactly is this</p>
 
   </div>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./scripts/api.js"></script>
+<script type="text/javascript" src="./scripts/index.js"></script>
+<script type-"text/javascript" src='./scripts/handlers.js'></script>
 </body>
+
 </html>
