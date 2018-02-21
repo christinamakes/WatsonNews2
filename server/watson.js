@@ -30,7 +30,8 @@ const callWatson = function(parameters) {
   }
   // response pushed to array of results 
     results.push((response));
-    return (results);
+    console.log(results + ' from watson');
+    return results;
     
   });
   // return results;
@@ -38,7 +39,7 @@ const callWatson = function(parameters) {
 };
 
 
-  callWatson(testParameters);
+  // callWatson(testParameters);
 
 
 

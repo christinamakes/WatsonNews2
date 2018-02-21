@@ -26,26 +26,27 @@ const articles = function(userQuery, startDate, endDate) {
     for( let i = 0; i < 2; i++) {
       currentURL.push(response.articles[i].url);
     }
-    return currentURL;
-  })
-    .then(response => {
-        for (let i = 0; i < response.length; i++) {
-          let parameters = {
-            'url': `${response[i]}`,
+    for (let i = 0; i < currentURL.length; i++) {
+        let parameters = {
+            'url': `${currentURL[i]}`,
             'features': {
             'emotion': {
             'document': true,
             },
           }
         };
-      return parameters;
-      }
-    })
-      .then(parameters => {
         console.log(parameters.url + ' from news then');
-        const watsonResults = watson.callWatson(parameters);
-        console.log(watsonResults + '    FROM NEWS');
-      });
+        watson.callWatson(parameters)
+          .then(watsonResults => {
+            console.log(watsonResults + ' from news.js');
+          })
+          .catch(err => {
+            console.log(err);
+          });
+    }});
+        // .then(responseWatson => {
+        //   console.log(responseWatson + ' from news');
+        // });
   };
 
   module.exports.articles = articles;
