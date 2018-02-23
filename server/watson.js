@@ -22,20 +22,18 @@ const myWatson = new naturalWaston({
 });
 
 const callWatson = function(parameters) {
-  const results = [];
-  myWatson.analyze(parameters, function(err, response) {
-  
-  if (err) {
-    console.log('error:', err);
-  }
-  // response pushed to array of results 
-    results.push((response));
-    console.log(results + ' from watson');
-    return results;
-    
+  return new Promise(function(resolve, reject) {
+      myWatson.analyze(parameters, function(err, response) {
+          if (err) {
+              console.log('error:', err);
+              reject(err);
+          } else {
+              console.log(JSON.stringify(response) + ' from watson');
+              resolve(JSON.stringify(response));
+          }
+      });
+
   });
-  // return results;
-  // return watsonResults;
 };
 
 

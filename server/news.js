@@ -52,6 +52,6 @@ const articles = function(userQuery, startDate, endDate) {
   module.exports.articles = articles;
 
 
-// getTheNews.articles('bitcoin', '12-10-17', '12-19-17');
+articles('bitcoin', '12-10-17', '12-19-17');
 
 
