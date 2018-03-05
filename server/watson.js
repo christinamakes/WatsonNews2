@@ -1,9 +1,5 @@
-//News API key cffd5c18704145eb89a7156717753b11
-
-// WATSON
-
-
 'use strict';
+
 const testParameters = {
   'url': 'https://stackoverflow.com/questions/33108326/how-to-pass-client-side-parameters-to-the-server-side-in-angular-node-js-express',
   'features': {
@@ -11,7 +7,6 @@ const testParameters = {
   'document': true,
   }
 }};
-
 
 const naturalWaston = require('watson-developer-cloud/natural-language-understanding/v1.js');
 
@@ -28,7 +23,7 @@ const callWatson = function(parameters) {
               console.log('error:', err);
               reject(err);
           } else {
-              console.log(JSON.stringify(response) + ' from watson');
+              // console.log(JSON.stringify(response) + ' from watson');
               resolve(JSON.stringify(response));
           }
       });
