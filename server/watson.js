@@ -23,7 +23,6 @@ const callWatson = function(parameters) {
               console.log('error:', err);
               reject(err);
           } else {
-              // console.log(JSON.stringify(response) + ' from watson');
               resolve(JSON.stringify(response));
           }
       });
@@ -31,8 +30,6 @@ const callWatson = function(parameters) {
   });
 };
 
-
-  // callWatson(testParameters);
 
 
 

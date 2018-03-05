@@ -17,16 +17,11 @@ const articles = function(userQuery, startDate, endDate) {
     sortBy: 'relevancy',
     page: 2
   }).then(response => {
-    let currentURL = [];
     let parameters = {};
-    // take url from news results and push to array
     // CHANGE LENGTH FROM i < 1 !!!
-    for( let i = 0; i < 1; i++) {
-      currentURL.push(response.articles[i].url);
-    }
-    for (let i = 0; i < currentURL.length; i++) {
+    for (let i = 0; i < 2; i++) {
         parameters = {
-            'url': `${currentURL[i]}`,
+            'url': `${response.articles[i].url}`,
             'features': {
             'emotion': {
             'document': true,
@@ -34,16 +29,23 @@ const articles = function(userQuery, startDate, endDate) {
           }
         };
       }
-    watson.callWatson(parameters)
-      .then(watsonResults => {
-        console.log(watsonResults + ' FROM news.js');
-        return watsonResults;
-        })
-        .catch(err => {
-        console.log(err);
-        });
+      console.log(parameters);
+    return new Promise(function(resolve, reject) {
+      watson.callWatson(parameters, function(err, response) {
+        if(err) {
+          console.log('error:', err);
+          reject(err);
+        } else {
+          console.log('hi');
+          resolve(response);
+        }
+      });
     });
-  };
+  });
+};
+
+
+  
 
   module.exports.articles = articles;
 
