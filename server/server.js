@@ -18,7 +18,7 @@ console.log('server ready');
     const { input } = req.query;
     console.log(news.articles(('bitcoin', '12-10-17', '12-19-17'))); // returns undefined, news and watson are returning correctly, calling .then returns undefined
     // console.log(input);
-    res.json(news.articles(input, '12-03-17', '12-10-17'));
+    // res.json(news.articles(input, '12-03-17', '12-10-17'));
   });
 
 app.listen(8080, function () {

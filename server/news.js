@@ -19,7 +19,7 @@ const articles = function(userQuery, startDate, endDate) {
   }).then(response => {
     let parameters = {};
     // CHANGE LENGTH FROM i < 1 !!!
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
         parameters = {
             'url': `${response.articles[i].url}`,
             'features': {
@@ -29,20 +29,22 @@ const articles = function(userQuery, startDate, endDate) {
           }
         };
       }
-      console.log(parameters);
+    
+      // return watson.callWatson(parameters);
     return new Promise(function(resolve, reject) {
       watson.callWatson(parameters, function(err, response) {
         if(err) {
           console.log('error:', err);
-          reject(err);
+          // reject(err);
         } else {
           console.log('hi');
-          resolve(response);
+          // resolve(response);
         }
       });
     });
   });
 };
+
 
 
   

@@ -17,12 +17,14 @@ const myWatson = new naturalWaston({
 });
 
 const callWatson = function(parameters) {
+  console.log('watson');
   return new Promise(function(resolve, reject) {
       myWatson.analyze(parameters, function(err, response) {
           if (err) {
               console.log('error:', err);
               reject(err);
           } else {
+              console.log('resolve');
               resolve(JSON.stringify(response));
           }
       });
