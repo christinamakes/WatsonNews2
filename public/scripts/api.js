@@ -2,7 +2,7 @@
 /* global $ */
 'use strict';
 
-console.log('api');
+
 
 const API_KEY = 'cffd5c18704145eb89a7156717753b11';
 const api = (function () {
@@ -25,8 +25,28 @@ const api = (function () {
     });
   };
 
+  // PASS IN URL
+  const getEmotion = function () {
+    return $.ajax({
+      type: 'GET',
+      url: 'https://api.aylien.com/api/v1/classify',
+      dataType: 'jsonp',
+      crossDomain: true,
+      data: {
+        url: 'https://www.w3schools.com/css/css_howto.asp'
+      },
+      headers: {
+        'Access-Control-Allow-Credentials': true,
+        'X-AYLIEN-TextAPI-Application-Key': '7ff933030d2979cbdb870ef0bb5e3ea9',
+        'X-AYLIEN-TextAPI-Application-ID': '7bb1767e'
+      }
+    });
+  };
+
+
   return {
-    getNews
+    getNews,
+    getEmotion
   };
 
 })();

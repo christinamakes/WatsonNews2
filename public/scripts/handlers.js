@@ -21,6 +21,12 @@ const handlers = (function () {
           console.log(urls);
         });
 
+      api.getEmotion()
+        .then(res => {
+          console.log(res);
+        });
+
+
     });
   }
 
