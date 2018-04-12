@@ -36,7 +36,6 @@ const api = (function () {
         url: 'https://www.w3schools.com/css/css_howto.asp'
       },
       headers: {
-        'Access-Control-Allow-Credentials': true,
         'X-AYLIEN-TextAPI-Application-Key': '7ff933030d2979cbdb870ef0bb5e3ea9',
         'X-AYLIEN-TextAPI-Application-ID': '7bb1767e'
       }
