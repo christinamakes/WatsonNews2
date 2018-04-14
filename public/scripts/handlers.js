@@ -18,13 +18,13 @@ const handlers = (function () {
       api.getNews(input)
         .then(res => {
           urls = [...((res.articles).map(article => article.url))];
-          console.log(urls);
+          const url = urls[1];
+          api.getEmotion(url)
+            .then(res => {
+              console.log(res.sentiment);
+            });
         });
 
-      api.getEmotion()
-        .then(res => {
-          console.log(res);
-        });
 
 
     });

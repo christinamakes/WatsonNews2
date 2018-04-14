@@ -26,19 +26,15 @@ const api = (function () {
   };
 
   // PASS IN URL
-  const getEmotion = function () {
+  const getEmotion = function (url) {
     return $.ajax({
       type: 'GET',
-      url: 'https://api.aylien.com/api/v1/classify',
-      dataType: 'jsonp',
-      crossDomain: true,
+      url: 'https://api.dandelion.eu/datatxt/sent/v1',
+      dataType: 'json',
       data: {
-        url: 'https://www.w3schools.com/css/css_howto.asp'
+        token: 'b97f5af544e14020b0887beef8e4a577',
+        url: url
       },
-      headers: {
-        'X-AYLIEN-TextAPI-Application-Key': '7ff933030d2979cbdb870ef0bb5e3ea9',
-        'X-AYLIEN-TextAPI-Application-ID': '7bb1767e'
-      }
     });
   };
 
