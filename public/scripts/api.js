@@ -46,4 +46,3 @@ const api = (function () {
 
 })();
 
-module.exports = api;

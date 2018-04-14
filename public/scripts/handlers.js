@@ -18,11 +18,15 @@ const handlers = (function () {
       api.getNews(input)
         .then(res => {
           urls = [...((res.articles).map(article => article.url))];
-          const url = urls[1];
-          api.getEmotion(url)
-            .then(res => {
-              console.log(res.sentiment);
-            });
+
+          urls.map(url => {
+            api.getEmotion(url)
+              .then(res => {
+                console.log(res.url);
+                console.log(res.sentiment);
+              });
+          });
+
         });
 
 
